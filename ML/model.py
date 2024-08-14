@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-data = pd.read_csv('dataset.csv')
+data = pd.read_csv('ml/dataset.csv')
 
 le_team1 = LabelEncoder()
 le_team2 = LabelEncoder()

@@ -1,14 +1,12 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
+  console.log(process.env.MONGO_URI);
   try {
-    await mongoose.connect(
-      "mongodb+srv://aloisekua:v6TIn4vCCikhTDoG@cluster0.t4bwm.mongodb.net/yourdatabase?retryWrites=true&w=majority",
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      },
-    );
+    await mongoose.connect(process.env.mongo_uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("MongoDB connected");
   } catch (err) {
     console.error(err.message);
