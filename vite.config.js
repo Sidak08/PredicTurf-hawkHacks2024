@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill';
-import inject from '@rollup/plugin-inject';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
+import inject from "@rollup/plugin-inject";
 
 export default defineConfig({
   plugins: [
@@ -11,23 +11,23 @@ export default defineConfig({
       buffer: true,
     }),
     inject({
-      Buffer: ['buffer', 'Buffer'],
+      Buffer: ["buffer", "Buffer"],
     }),
   ],
   resolve: {
     alias: {
-      '@': '/FrontEnd/src',
+      "@": "/frontend/src",
     },
   },
   server: {
     proxy: {
-      '/api': 'http://localhost:5000',
+      "/api": "http://localhost:5000",
     },
   },
   optimizeDeps: {
     esbuildOptions: {
       define: {
-        global: 'globalThis',
+        global: "globalThis",
       },
       plugins: [
         NodeGlobalsPolyfillPlugin({

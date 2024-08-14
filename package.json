@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "nodemon ./backend/server.js"
+    "server": "nodemon ./backend/server.js",
+    "flask": "python3 ml/model.py",
+    "download": "npm i && pip install -r ml/requirements.txt",
+    "start": "npm run dev && concurrently \"npm run server\" \"npm run flask\""
   },
   "dependencies": {
     "@adobe/aio-cli": "^10.0.0",
@@ -20,7 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.4.0",
     "near-api-js": "^4.0.1",
-    "nodemon": "^3.1.0",
+    "nodemon": "^3.1.4",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
