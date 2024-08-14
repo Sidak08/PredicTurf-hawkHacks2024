@@ -8,10 +8,10 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "nodemon ./backend/server.js",
-    "flask": "python3 ml/model.py",
+    "server": "node ./backend/server.js",
+    "flask": "gunicorn -w 4 -b 0.0.0.0:5001 ml.model:app",
     "download": "npm i && pip install -r ml/requirements.txt",
-    "start": "concurrently \"npm run dev\" \"npm run server\" \"npm run flask\""
+    "compile": "concurrently \"npm run build\" \"npm run server\" \"npm run flask\""
   },
   "dependencies": {
     "@adobe/aio-cli": "^10.0.0",
